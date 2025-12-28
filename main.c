@@ -21,8 +21,8 @@ int is_valid_num(char *str)
 
 int check_args(int ac, char **av)
 {
-    int         i;
-    long int    num;
+    int     i;
+    long    num;
 
 	i = 0;
 	if (ac < 5 || ac > 6)

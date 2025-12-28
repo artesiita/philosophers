@@ -11,27 +11,19 @@ int ft_strlen(char *str)
     return (i);
 }
 
-int ft_atoi(char *str)
+long ft_atoi(char *str)
 {
-    int long    res;
-    int         sign;
-    int         i;
+    long    res;
+    int     i;
 
     i = 0;
     res = 0;
-    sign = 1;
-    while (((str[i] == ' ') || (str[i] >= 9 && str[i] <= 13)) && str[i] != '\0')
+    if (str[i] == '+')
         i++;
-    while ((str[i] == '-' || str[i] == '+') && str[i] != '\0')
-    {
-        if (str[i] == '-')
-            sign = -1;
-        i++;
-    }
     while ((str[i] >= '0' && str[i] <= '9') && str[i] != '\0')
     {
         res = (res * 10) + (str[i] - '0');
         i++;
     }
-    return (res * sign);
+    return (res);
 }

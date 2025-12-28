@@ -57,7 +57,7 @@ typedef struct s_engine
 /*
 ** ----- utils.c -------------------------------
 */
-int     ft_atoi(char *str);
+long    ft_atoi(char *str);
 void	error_message(char *text, int signal);
 int     ft_strlen(char *str);
 /*
