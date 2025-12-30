@@ -6,7 +6,7 @@
 /*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 12:58:37 by lartes-s          #+#    #+#             */
-/*   Updated: 2025/12/30 19:33:57 by lartes-s         ###   ########.fr       */
+/*   Updated: 2025/12/30 19:52:18 by lartes-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@
 # include <limits.h>
 
 # define RESET   "\033[0m"
-# define RED     "\033[1;31m"
-# define GREEN   "\033[1;32m"
-# define YELLOW  "\033[1;33m"
-# define BLUE    "\033[1;34m"
-# define MAGENTA "\033[1;35m"
-# define CYAN    "\033[1;36m"
-# define WHITE   "\033[1;37m"
+# define RED     "\033[0;31m"
+# define GREEN   "\033[0;32m"
+# define YELLOW  "\033[0;93m"
+# define BLUE    "\033[0;34m"
+# define MAGENTA "\033[0;35m"
+# define CYAN    "\033[0;36m"
+# define WHITE   "\033[0;37m"
 
 typedef pthread_t		t_id;
 typedef pthread_mutex_t	t_mutex;

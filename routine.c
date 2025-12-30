@@ -6,7 +6,7 @@
 /*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 17:13:05 by lartes-s          #+#    #+#             */
-/*   Updated: 2025/12/30 19:28:24 by lartes-s         ###   ########.fr       */
+/*   Updated: 2025/12/30 19:48:57 by lartes-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ void	*philo_routine(void *pointer)
 		return (NULL);
 	}
 	if (philo->id % 2 == 0)
-		ft_usleep(1);
+		ft_usleep(20);
 	while (dead_loop(philo) == 0)
 	{
 		eat_routine(philo);
