@@ -6,7 +6,7 @@
 /*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 12:58:37 by lartes-s          #+#    #+#             */
-/*   Updated: 2025/12/30 14:28:58 by lartes-s         ###   ########.fr       */
+/*   Updated: 2025/12/30 19:33:57 by lartes-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,14 @@
 # include <stddef.h>
 # include <limits.h>
 
-# define PHILO_MAX_COUNT 200
+# define RESET   "\033[0m"
+# define RED     "\033[1;31m"
+# define GREEN   "\033[1;32m"
+# define YELLOW  "\033[1;33m"
+# define BLUE    "\033[1;34m"
+# define MAGENTA "\033[1;35m"
+# define CYAN    "\033[1;36m"
+# define WHITE   "\033[1;37m"
 
 typedef pthread_t		t_id;
 typedef pthread_mutex_t	t_mutex;
@@ -55,6 +62,7 @@ typedef struct s_philo
 	t_id		thread_id;
 	int			meals_eaten;
 	int			philo_count;
+	int			*dead;
 }	t_philo;
 
 typedef struct s_engine
@@ -67,29 +75,33 @@ typedef struct s_engine
 	t_times	times;
 	size_t	start_time;
 	int		philo_count;
+	int		dead_flag;
 }	t_engine;
 
-
-
 /*
-** ----- utils --------------------------------
+** ----- utils ---------------------------------
 */
-long    ft_atoi(char *str);
-void	error_message(char *text);
-int     ft_strlen(char *str);
 size_t	get_time(void);
-void	print_message(char *str, t_philo *philo);
 void	ft_usleep(size_t milliseconds);
+void	cleanup(t_engine *engine);
 /*
-** ----- init --------------------------------
+** ----- string utils ----------------------------
+*/
+void	print_message(char *str, char *color, t_philo *philo);
+long	ft_atoi(char *str);
+void	error_message(char *text);
+int		ft_strlen(char *str);
+
+/*
+** ----- init -----------------------------------
 */
 int		init_engine(t_engine *engine, int ac, char **av);
 int		init_threads(t_engine *engine);
 /*
 ** ----- routine --------------------------------
 */
-void    *philo_routine(void *pointer);
-int    launcher(t_engine *engine);
-
+void	*philo_routine(void *pointer);
+void	*monitor(void *pointer);
+int		dead_loop(t_philo *philo);
 
 #endif
